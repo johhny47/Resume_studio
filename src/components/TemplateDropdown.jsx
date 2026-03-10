@@ -40,7 +40,7 @@ export default function TemplateDropdown({
   return (
     <div className="relative group">
       <button className="btn btn-warning px-[18px] py-[10px] rounded-[10px] cursor-pointer text-[14px] font-medium transition-all duration-300 ease flex items-center gap-2 border-none bg-gradient-to-r from-warning to-warning-light text-white shadow-btn-warning hover:shadow-btn-warning-hover hover:-translate-y-0.5">
-        <span>📋</span> Resume Templates
+        <span>📋</span> Resume
         {savedTemplates.length > 0 && (
           <span className="ml-1 bg-white/20 px-1.5 py-0.5 rounded text-xs">
             {savedTemplates.length}

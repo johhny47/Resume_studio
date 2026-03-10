@@ -1,32 +1,34 @@
-# Resume Editor - Local Storage Template Feature
+# TODO: Menu Bar Enhancement - Fancy Icons & 2-Row Layout
 
-## Task: Add resume template save in local storage
+## Task: Make all menu bar button icons fancy and implement 2-row layout
 
-## Steps Completed:
+### Steps:
+- [x] 1. Install lucide-react for fancy icons
+- [x] 2. Update Button.jsx to support icon-only buttons with better styling (ghost, icon variants)
+- [x] 3. Restructure MenuBar.jsx into 2 rows:
+  - Row 1: Main actions (Text, Shapes, Table, Upload, Save, Templates, Delete, Export)
+  - Row 2: Styling controls (Alignment, Font, Size, Bold, Colors, Shape, Z-index, Height)
+- [x] 4. Replace all simple text icons with Lucide fancy icons:
+  - Type icon for Text
+  - Square, Circle, Triangle for Shapes
+  - Table for Table
+  - Image for Upload
+  - Save for Save
+  - Trash2 for Delete
+  - AlignLeft, AlignCenter, AlignRight for text alignment
+  - Bold for bold
+  - Underline, Strikethrough for text decoration
+  - MoveUp, MoveDown for z-index
+  - Plus, Minus for height
+  - LayoutTemplate for logo
+- [x] 5. Add hover effects, shadows, and grouped button styles
+- [x] 6. Test the changes - Development server running at http://localhost:5178/
 
-- [x] 1. Update App.jsx - Add localStorage state management for saved templates
-- [x] 2. Update App.jsx - Implement handleAddTemplate function to save canvas as template
-- [x] 3. Update App.jsx - Add deleteTemplate function
-- [x] 4. Update App.jsx - Combine built-in templates with saved templates
-- [x] 5. Update MenuBar.jsx - Pass delete template handler
-- [x] 6. Update TemplateDropdown.jsx - Add visual indicator and delete option for saved templates
-- [x] 7. Test the implementation
-
-## Features Implemented:
-
-1. **Save Templates to Local Storage**: Users can save the current canvas as a template with a custom name
-2. **Load Saved Templates**: Saved templates appear in a separate "★ Saved Templates" section
-3. **Delete Saved Templates**: Users can delete saved templates with a confirmation dialog
-4. **Visual Distinction**: Built-in templates and saved templates are visually separated in the dropdown
-5. **Badge Count**: Shows the number of saved templates on the button
-
-## How to Use:
-
-1. Create a resume layout by adding text, images, etc.
-2. Click "Resume Templates" → "+ Add New Template"
-3. Enter a name for your template
-4. Click "Add Template" to save
-5. Your saved template will appear in the "★ Saved Templates" section
-6. Click on any saved template to load it
-7. Hover over a saved template and click 🗑️ to delete it
+### Notes:
+- Menu bar now has a clean 2-row layout
+- All buttons use fancy Lucide icons
+- Added dividers between control groups
+- Styled button groups with shadows and borders
+- Icon-only buttons for delete and toolbar actions
+- Ghost variant for inactive state buttons
 

@@ -293,23 +293,224 @@ function App() {
     saveTemplatesToStorage(updatedTemplates)
   }
 
+  // Quick save - save current canvas to the loaded template or to localStorage
+  const handleQuickSave = () => {
+    if (elements.length === 0) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'No Elements',
+        text: 'Add some elements to the canvas first!',
+        confirmButtonColor: '#667eea'
+      })
+      return
+    }
+
+    // If a saved template is loaded, update that template
+    if (currentTemplateId) {
+      const templateIndex = savedTemplates.findIndex(t => t.id === currentTemplateId)
+      if (templateIndex !== -1) {
+        const updatedTemplates = [...savedTemplates]
+        updatedTemplates[templateIndex] = {
+          ...updatedTemplates[templateIndex],
+          elements: elements.map(el => {
+            const { uniqueId, ...rest } = el
+            return rest
+          })
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedTemplates))
+        setSavedTemplates(updatedTemplates)
+        
+        Swal.fire({
+          icon: 'success',
+          title: 'Saved!',
+          text: 'Template updated successfully!',
+          confirmButtonColor: '#667eea',
+          timer: 1500,
+          showConfirmButton: false
+        })
+        return
+      }
+    }
+
+    // Otherwise save to autoSave
+    localStorage.setItem(AUTO_SAVE_KEY, JSON.stringify(elements))
+    
+    Swal.fire({
+      icon: 'success',
+      title: 'Saved!',
+      text: 'Canvas saved to localStorage successfully!',
+      confirmButtonColor: '#667eea',
+      timer: 1500,
+      showConfirmButton: false
+    })
+  }
+
+  // Helper function to find free whitespace in canvas
+  const findFreePosition = (width, height) => {
+    const canvasWidth = 850 // Default canvas width
+    const canvasH = canvasHeight
+    const padding = 20 // Minimum gap between elements
+    
+    // If no elements exist, use default position
+    if (elements.length === 0) {
+      return { left: 50, top: 50 }
+    }
+    
+    // Try to find a free space by checking each potential position
+    // We'll check positions in a grid pattern
+    const positions = []
+    for (let top = 20; top < canvasH - height; top += 50) {
+      for (let left = 20; left < canvasWidth - width; left += 50) {
+        positions.push({ left, top })
+      }
+    }
+    
+    // Sort positions by distance from top-left (prefer top-left)
+    positions.sort((a, b) => (a.top - b.top) || (a.left - b.left))
+    
+    // Check each position for overlap
+    for (const pos of positions) {
+      const hasOverlap = elements.some(el => {
+        const elRight = (el.left || 0) + (el.width || 100)
+        const elBottom = (el.top || 0) + (el.height || 40)
+        const newRight = pos.left + width
+        const newBottom = pos.top + height
+        
+        return !(pos.left >= elRight || 
+                 newRight <= (el.left || 0) || 
+                 pos.top >= elBottom || 
+                 newBottom <= (el.top || 0))
+      })
+      
+      if (!hasOverlap) {
+        return pos
+      }
+    }
+    
+    // If no free space found, return top: 0 position
+    return { left: 50, top: 0 }
+  }
+
   // Add text element
   const addText = () => {
+    const position = findFreePosition(200, 40)
     const newElement = {
       uniqueId: `text-${Date.now()}`,
       id: 'text',
       type: 'text',
       content: 'Double-click to edit',
-      left: 50,
-      top: 50,
+      left: position.left,
+      top: position.top,
       width: 200,
       height: 40,
       fontSize: 16,
       fontFamily: 'Arial, sans-serif',
+      fontWeight: 'normal',
       color: '#333333',
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
+      textDecoration: 'none',
+      textDecorationLine: 'none',
+      textDecorationStyle: 'solid',
+      textDecorationColor: '#333333',
+      textAlign: 'left',
+      shape: 'rectangle',
     }
     setElements(prev => [...prev, newElement])
+  }
+
+  // Add shape element
+  const addShape = (shapeType) => {
+    const defaultSizes = {
+      rectangle: { width: 150, height: 100 },
+      circle: { width: 120, height: 120 },
+      oval: { width: 160, height: 100 },
+      triangle: { width: 120, height: 100 },
+    }
+    const sizes = defaultSizes[shapeType] || { width: 150, height: 100 }
+    const position = findFreePosition(sizes.width, sizes.height)
+    
+    const newElement = {
+      uniqueId: `shape-${Date.now()}`,
+      id: 'shape',
+      type: 'shape',
+      shape: shapeType,
+      left: position.left,
+      top: position.top,
+      width: sizes.width,
+      height: sizes.height,
+      backgroundColor: '#667eea',
+      borderColor: '#333333',
+      borderWidth: 2,
+      borderStyle: 'solid',
+    }
+    setElements(prev => [...prev, newElement])
+  }
+
+  // Add table element
+  const addTable = () => {
+    const position = findFreePosition(400, 200)
+    const newElement = {
+      uniqueId: `table-${Date.now()}`,
+      id: 'table',
+      type: 'table',
+      left: position.left,
+      top: position.top,
+      width: 400,
+      height: 200,
+      rows: 3,
+      columns: 3,
+      borderColor: '#333333',
+      borderWidth: 1,
+      headerBgColor: '#667eea',
+      headerTextColor: '#ffffff',
+      cellBgColor: '#ffffff',
+      cellTextColor: '#333333',
+      fontSize: 12,
+      fontFamily: 'Arial, sans-serif',
+    }
+    setElements(prev => [...prev, newElement])
+  }
+
+  // Toggle text decoration
+  const toggleTextDecoration = (decoration) => {
+    if (!activeElement) return
+    
+    let newDecoration = 'none'
+    let newDecorationLine = 'none'
+    let newDecorationStyle = 'solid'
+    let newDecorationColor = activeElement.color || '#333333'
+    
+    const currentLine = activeElement.textDecorationLine || 'none'
+    const currentDecoration = activeElement.textDecoration || 'none'
+    
+    if (decoration === 'underline') {
+      if (currentLine === 'underline') {
+        newDecorationLine = 'none'
+      } else {
+        newDecorationLine = 'underline'
+      }
+    } else if (decoration === 'overline') {
+      if (currentLine === 'overline') {
+        newDecorationLine = 'none'
+      } else {
+        newDecorationLine = 'overline'
+      }
+    } else if (decoration === 'line-through') {
+      if (currentLine === 'line-through') {
+        newDecorationLine = 'none'
+      } else {
+        newDecorationLine = 'line-through'
+      }
+    }
+    
+    if (newDecorationLine !== 'none') {
+      newDecoration = `${newDecorationLine} ${newDecorationStyle} ${newDecorationColor}`
+    }
+    
+    updateElementStyle('textDecoration', newDecoration)
+    updateElementStyle('textDecorationLine', newDecorationLine)
+    updateElementStyle('textDecorationStyle', newDecorationStyle)
+    updateElementStyle('textDecorationColor', newDecorationColor)
   }
 
   // Image upload
@@ -319,13 +520,14 @@ function App() {
 
     const reader = new FileReader()
     reader.onload = (e) => {
+      const position = findFreePosition(200, 150)
       const newElement = {
         uniqueId: `image-${Date.now()}`,
         id: 'image',
         type: 'image',
         content: e.target.result,
-        left: 50,
-        top: 50,
+        left: position.left,
+        top: position.top,
         width: 200,
         height: 150
       }
@@ -360,6 +562,12 @@ function App() {
     if (!activeElement) return
     const newWeight = activeElement.fontWeight === 'bold' ? 'normal' : 'bold'
     updateElementStyle('fontWeight', newWeight)
+  }
+
+  const toggleFontStyle = () => {
+    if (!activeElement) return
+    const newStyle = activeElement.fontStyle === 'italic' ? 'normal' : 'italic'
+    updateElementStyle('fontStyle', newStyle)
   }
 
   // Delete element
@@ -498,6 +706,7 @@ function App() {
   const currentFontFamily = activeElement?.fontFamily || 'Arial, sans-serif'
   const currentFontSize = activeElement?.fontSize || 16
   const isBold = activeElement?.fontWeight === 'bold'
+  const isItalic = activeElement?.fontStyle === 'italic'
   const textColor = activeElement?.color || '#333333'
   const bgColor = activeElement?.backgroundColor || '#ffffff'
 
@@ -506,7 +715,10 @@ function App() {
       {/* Menu Bar */}
       <MenuBar
         onAddText={addText}
+        onAddShape={addShape}
+        onAddTable={addTable}
         onImageUpload={handleImageUpload}
+        onSaveCanvas={handleQuickSave}
         templates={allTemplates}
         savedTemplatesCount={savedTemplates.length}
         onSelectTemplate={loadTemplate}
@@ -521,23 +733,29 @@ function App() {
         onFontSizeIncrease={() => changeFontSize(2)}
         isBold={isBold}
         onToggleBold={toggleFontWeight}
+        isItalic={isItalic}
+        onToggleItalic={toggleFontStyle}
         textColor={textColor}
         onTextColorChange={(value) => updateElementStyle('color', value)}
         bgColor={bgColor}
         onBgColorChange={(value) => updateElementStyle('backgroundColor', value)}
+        onToggleTextDecoration={toggleTextDecoration}
+        activeTextDecoration={activeElement?.textDecorationLine || 'none'}
+        textAlign={activeElement?.textAlign || 'left'}
+        onTextAlignChange={(value) => updateElementStyle('textAlign', value)}
+        activeShape={activeElement?.shape || ''}
+        onShapeChange={(shape) => updateElementStyle('shape', shape)}
+        activeElement={activeElement}
         onBringToFront={bringToFront}
         onSendToBack={sendToBack}
         onDelete={deleteActiveElement}
         onExport={exportCanvas}
+        canvasHeight={canvasHeight}
+        onIncreaseCanvasHeight={() => adjustCanvasHeight(50)}
+        onDecreaseCanvasHeight={() => adjustCanvasHeight(-50)}
       />
       
-      {/* Height Control Bar */}
-      <HeightControlBar
-        height={canvasHeight}
-        onDecrease={() => adjustCanvasHeight(-50)}
-        onIncrease={() => adjustCanvasHeight(50)}
-        className="mb-5"
-      />
+    
       
       {/* Modal for Adding New Template */}
       <Modal
