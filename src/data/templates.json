@@ -81,7 +81,8 @@
         { "id": "edu-title", "type": "text", "content": "EDUCATION", "left": 50, "top": 390, "width": 150, "fontSize": 14, "fontFamily": "Times New Roman, serif", "fontWeight": "bold", "color": "#000000" },
         { "id": "edu", "type": "text", "content": "MBA in Marketing | University of Chicago | 2018", "left": 50, "top": 415, "width": 400, "fontSize": 13, "fontFamily": "Arial, sans-serif", "color": "#333333" },
         { "id": "skills-title", "type": "text", "content": "SKILLS", "left": 50, "top": 470, "width": 150, "fontSize": 14, "fontFamily": "Times New Roman, serif", "fontWeight": "bold", "color": "#000000" },
-        { "id": "skills", "type": "text", "content": "Digital Marketing, Social Media Management, SEO, Google Analytics, Project Management", "left": 50, "top": 495, "width": 750, "fontSize": 13, "fontFamily": "Arial, sans-serif", "color": "#333333" }
+        { "id": "skills", "type": "text", "content": "Digital Marketing, Social Media Management, SEO, Google Analytics, Project Management", "left": 50, "top": 495, "width": 750, "fontSize": 13, "fontFamily": "Arial, sans-serif", "color": "#333333" },
+        { "id": "table1", "type": "table", "left": 50, "top": 530, "width": 750, "height": 120, "rows": 3, "columns": 4, "tableData": [["Skill", "Level", "Years", "Projects"], ["SEO", "Expert", "5+", "25+"], ["Analytics", "Advanced", "4+", "15+"]], "borderColor": "#333333", "borderWidth": 1, "headerBgColor": "#667eea", "headerTextColor": "#ffffff", "cellBgColor": "#ffffff", "cellTextColor": "#333333", "fontSize": 12, "fontFamily": "Arial, sans-serif" }
       ]
     },
     {

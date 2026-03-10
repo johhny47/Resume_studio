@@ -449,6 +449,19 @@ function App() {
   // Add table element
   const addTable = () => {
     const position = findFreePosition(400, 200)
+    const rows = 3
+    const columns = 3
+    
+    // Generate default table data
+    const tableData = []
+    for (let i = 0; i < rows; i++) {
+      const row = []
+      for (let j = 0; j < columns; j++) {
+        row.push(i === 0 ? `Header ${j + 1}` : `Cell ${i}-${j + 1}`)
+      }
+      tableData.push(row)
+    }
+    
     const newElement = {
       uniqueId: `table-${Date.now()}`,
       id: 'table',
@@ -457,8 +470,9 @@ function App() {
       top: position.top,
       width: 400,
       height: 200,
-      rows: 3,
-      columns: 3,
+      rows: rows,
+      columns: columns,
+      tableData: tableData,
       borderColor: '#333333',
       borderWidth: 1,
       headerBgColor: '#667eea',
@@ -513,25 +527,70 @@ function App() {
     updateElementStyle('textDecorationColor', newDecorationColor)
   }
 
-  // Image upload
+  // File upload handler - supports PDF, DOC, DOCX, and images
   const handleImageUpload = (event) => {
     const file = event.target.files[0]
     if (!file) return
 
+    const fileType = file.type
+    const fileName = file.name
+    const fileExtension = fileName.split('.').pop().toLowerCase()
+    
     const reader = new FileReader()
     reader.onload = (e) => {
-      const position = findFreePosition(200, 150)
-      const newElement = {
-        uniqueId: `image-${Date.now()}`,
-        id: 'image',
-        type: 'image',
-        content: e.target.result,
-        left: position.left,
-        top: position.top,
-        width: 200,
-        height: 150
+      const fileContent = e.target.result
+      
+      // Check file type and create appropriate element
+      if (fileType === 'application/pdf' || fileExtension === 'pdf') {
+        // Create PDF element - auto-size based on typical PDF page
+        const newElement = {
+          uniqueId: `pdf-${Date.now()}`,
+          id: 'pdf',
+          type: 'pdf',
+          content: fileContent,
+          fileName: fileName,
+          left: 50,
+          top: 50,
+          width: 595, // A4 width at 72dpi
+          height: 842, // A4 height at 72dpi
+        }
+        setElements(prev => [...prev, newElement])
+        // Auto-increase canvas height for PDF
+        setCanvasHeight(prev => Math.max(prev, 900))
+      } else if (
+        fileType === 'application/msword' || 
+        fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+        fileExtension === 'doc' || 
+        fileExtension === 'docx'
+      ) {
+        // Create DOC element - display as embeddable object
+        const newElement = {
+          uniqueId: `doc-${Date.now()}`,
+          id: 'doc',
+          type: 'doc',
+          content: fileContent,
+          fileName: fileName,
+          left: 50,
+          top: 50,
+          width: 300,
+          height: 400,
+        }
+        setElements(prev => [...prev, newElement])
+      } else {
+        // Create image element for image files
+        const position = findFreePosition(200, 150)
+        const newElement = {
+          uniqueId: `image-${Date.now()}`,
+          id: 'image',
+          type: 'image',
+          content: fileContent,
+          left: position.left,
+          top: position.top,
+          width: 200,
+          height: 150
+        }
+        setElements(prev => [...prev, newElement])
       }
-      setElements(prev => [...prev, newElement])
     }
     reader.readAsDataURL(file)
     event.target.value = ''
@@ -614,6 +673,35 @@ function App() {
   const handleTextDoubleClick = (e, element) => {
     e.stopPropagation()
     e.target.focus()
+  }
+
+  // Handle element resize (e.g., when PDF height changes)
+  const handleElementResize = (element, newHeight) => {
+    setElements(prev => prev.map(el => 
+      el.uniqueId === element.uniqueId 
+        ? { ...el, height: newHeight }
+        : el
+    ))
+    // Also increase canvas height if needed
+    setCanvasHeight(prev => Math.max(prev, newHeight + 100))
+  }
+
+  // Handle table cell data changes - sync to parent state
+  const handleTableDataChange = (elementId, newTableData) => {
+    setElements(prev => prev.map(el => 
+      el.uniqueId === elementId 
+        ? { ...el, tableData: newTableData }
+        : el
+    ))
+  }
+
+  // Handle table structure changes (rows/columns)
+  const handleTableStructureChange = (elementId, changes) => {
+    setElements(prev => prev.map(el => 
+      el.uniqueId === elementId 
+        ? { ...el, ...changes }
+        : el
+    ))
   }
 
   // Canvas height adjustment
@@ -799,6 +887,9 @@ function App() {
         onElementResizeStart={handleResizeStart}
         onElementContentEdit={handleContentEdit}
         onElementDoubleClick={handleTextDoubleClick}
+        onElementResize={handleElementResize}
+        onTableDataChange={handleTableDataChange}
+        onTableStructureChange={handleTableStructureChange}
       />
     </div>
   )

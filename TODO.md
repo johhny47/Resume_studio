@@ -1,34 +1,16 @@
-# TODO: Menu Bar Enhancement - Fancy Icons & 2-Row Layout
+# Table Update Features - TODO
 
-## Task: Make all menu bar button icons fancy and implement 2-row layout
+## Task: Table row, column and cell data can be updated
 
 ### Steps:
-- [x] 1. Install lucide-react for fancy icons
-- [x] 2. Update Button.jsx to support icon-only buttons with better styling (ghost, icon variants)
-- [x] 3. Restructure MenuBar.jsx into 2 rows:
-  - Row 1: Main actions (Text, Shapes, Table, Upload, Save, Templates, Delete, Export)
-  - Row 2: Styling controls (Alignment, Font, Size, Bold, Colors, Shape, Z-index, Height)
-- [x] 4. Replace all simple text icons with Lucide fancy icons:
-  - Type icon for Text
-  - Square, Circle, Triangle for Shapes
-  - Table for Table
-  - Image for Upload
-  - Save for Save
-  - Trash2 for Delete
-  - AlignLeft, AlignCenter, AlignRight for text alignment
-  - Bold for bold
-  - Underline, Strikethrough for text decoration
-  - MoveUp, MoveDown for z-index
-  - Plus, Minus for height
-  - LayoutTemplate for logo
-- [x] 5. Add hover effects, shadows, and grouped button styles
-- [x] 6. Test the changes - Development server running at http://localhost:5178/
+1. [x] Analyze codebase to understand data flow
+2. [x] Modify CanvasElement.jsx - Add table data sync and row/column controls
+3. [x] Modify Canvas.jsx - Pass through new props
+4. [x] Modify App.jsx - Add handlers for table data and row/column changes
 
-### Notes:
-- Menu bar now has a clean 2-row layout
-- All buttons use fancy Lucide icons
-- Added dividers between control groups
-- Styled button groups with shadows and borders
-- Icon-only buttons for delete and toolbar actions
-- Ghost variant for inactive state buttons
+### Features implemented:
+- [x] Cell text edit - sync changes back to parent state
+- [x] Real-time cell editing - updates as you type (onInput event)
+- [x] Row increase/decrease functionality (+ Row / - Row buttons)
+- [x] Column increase/decrease functionality (+ Col / - Col buttons)
 

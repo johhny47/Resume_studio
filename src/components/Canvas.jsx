@@ -11,7 +11,10 @@ export default function Canvas({
   onElementMouseDown,
   onElementResizeStart,
   onElementContentEdit,
-  onElementDoubleClick 
+  onElementDoubleClick,
+  onElementResize,
+  onTableDataChange,
+  onTableStructureChange 
 }) {
   return (
     <div className="flex justify-center">
@@ -56,6 +59,9 @@ export default function Canvas({
             onResizeStart={onElementResizeStart}
             onContentEdit={onElementContentEdit}
             onDoubleClick={onElementDoubleClick}
+            onElementResize={onElementResize}
+            onTableDataChange={onTableDataChange}
+            onTableStructureChange={onTableStructureChange}
           />
         ))}
       </div>

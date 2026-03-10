@@ -173,14 +173,20 @@ export default function MenuBar({
         {/* Upload Image Button */}
         <Button 
           variant="secondary" 
-          onClick={() => document.getElementById('imageInput').click()}
+          onClick={() => document.getElementById('fileInput').click()}
           icon={Image}
           iconOnly={false}
-          title="Upload Image"
+          title="Upload File"
         >
           Upload
         </Button>
-        <input type="file" id="imageInput" accept="image/*" onChange={onImageUpload} className="hidden" />
+        <input 
+          type="file" 
+          id="fileInput" 
+          accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.gif,.bmp,.webp" 
+          onChange={onImageUpload} 
+          className="hidden" 
+        />
         
         {/* Save Canvas Button */}
         <Button 
