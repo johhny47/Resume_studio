@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-poppins: 'Poppins', Arial, sans-serif;
+  --color-primary: #667eea;
+  --color-primary-dark: #764ba2;
+  --color-secondary: #f093fb;
+  --color-accent: #f5576c;
+  --color-success: #11998e;
+  --color-success-light: #38ef7d;
+  --color-warning: #f2994a;
+  --color-warning-light: #f2c94c;
+  --color-danger: #ff6b6b;
+  
+  --shadow-menu: 0 10px 40px rgba(0, 0, 0, 0.2);
+  --shadow-canvas: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --shadow-btn-primary: 0 4px 15px rgba(102, 126, 234, 0.4);
+  --shadow-btn-primary-hover: 0 6px 20px rgba(102, 126, 234, 0.6);
+  --shadow-btn-secondary: 0 4px 15px rgba(245, 87, 108, 0.4);
+  --shadow-btn-secondary-hover: 0 6px 20px rgba(245, 87, 108, 0.6);
+  --shadow-btn-success: 0 4px 15px rgba(56, 239, 125, 0.4);
+  --shadow-btn-success-hover: 0 6px 20px rgba(56, 239, 125, 0.6);
+  --shadow-btn-warning: 0 4px 15px rgba(242, 153, 74, 0.4);
+  --shadow-btn-warning-hover: 0 6px 20px rgba(242, 153, 74, 0.6);
+  --shadow-btn-danger: 0 4px 15px rgba(255, 107, 107, 0.4);
+  --shadow-btn-danger-hover: 0 6px 20px rgba(255, 107, 107, 0.6);
+  --shadow-height-control: 0 5px 20px rgba(0, 0, 0, 0.1);
+  
+  --animate-fade-in: fadeIn 0.3s ease;
+  --animate-slide-in: slideIn 0.3s ease;
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  /* Hidden file input */
+  #imageInput {
+    display: none;
+  }
+}
+

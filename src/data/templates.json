@@ -1,0 +1,107 @@
+{
+  "templates": [
+    {
+      "id": "professional",
+      "name": "Professional",
+      "preview": "linear-gradient(135deg, #2c3e50 0%, #3498db 100%)",
+      "elements": [
+        { "id": "name", "type": "text", "content": "JOHN DOE", "left": 50, "top": 30, "width": 300, "fontSize": 32, "fontFamily": "Georgia, serif", "fontWeight": "bold", "color": "#2c3e50", "backgroundColor": "#ecf0f1" },
+        { "id": "title", "type": "text", "content": "Software Engineer", "left": 50, "top": 75, "width": 300, "fontSize": 18, "fontFamily": "Arial, sans-serif", "color": "#7f8c8d" },
+        { "id": "contact", "type": "text", "content": "Email: john.doe@email.com | Phone: (555) 123-4567", "left": 50, "top": 105, "width": 400, "fontSize": 12, "fontFamily": "Arial, sans-serif", "color": "#95a5a6" },
+        { "id": "summary-title", "type": "text", "content": "PROFESSIONAL SUMMARY", "left": 50, "top": 145, "width": 750, "fontSize": 14, "fontFamily": "Arial, sans-serif", "fontWeight": "bold", "color": "#2c3e50", "borderBottom": "2px solid #3498db" },
+        { "id": "summary", "type": "text", "content": "Experienced software engineer with 5+ years of experience in developing scalable web applications. Skilled in JavaScript, Python, and cloud technologies.", "left": 50, "top": 175, "width": 750, "fontSize": 14, "fontFamily": "Arial, sans-serif", "color": "#34495e", "lineHeight": "1.6" },
+        { "id": "experience-title", "type": "text", "content": "WORK EXPERIENCE", "left": 50, "top": 260, "width": 750, "fontSize": 14, "fontFamily": "Arial, sans-serif", "fontWeight": "bold", "color": "#2c3e50", "borderBottom": "2px solid #3498db" },
+        { "id": "exp1-title", "type": "text", "content": "Senior Software Developer | Tech Company Inc.", "left": 50, "top": 290, "width": 400, "fontSize": 16, "fontFamily": "Arial, sans-serif", "fontWeight": "bold", "color": "#2c3e50" },
+        { "id": "exp1-date", "type": "text", "content": "2020 - Present", "left": 500, "top": 290, "width": 150, "fontSize": 14, "fontFamily": "Arial, sans-serif", "color": "#7f8c8d" },
+        { "id": "exp1-desc", "type": "text", "content": "• Led development of microservices architecture\n• Mentored junior developers\n• Improved system performance by 40%", "left": 50, "top": 320, "width": 750, "fontSize": 14, "fontFamily": "Arial, sans-serif", "color": "#34495e", "lineHeight": "1.8" },
+        { "id": "skills-title", "type": "text", "content": "SKILLS", "left": 50, "top": 430, "width": 750, "fontSize": 14, "fontFamily": "Arial, sans-serif", "fontWeight": "bold", "color": "#2c3e50", "borderBottom": "2px solid #3498db" },
+        { "id": "skills", "type": "text", "content": "JavaScript, Python, React, Node.js, AWS, Docker, SQL, Git", "left": 50, "top": 465, "width": 750, "fontSize": 14, "fontFamily": "Arial, sans-serif", "color": "#34495e" },
+        { "id": "education-title", "type": "text", "content": "EDUCATION", "left": 50, "top": 510, "width": 750, "fontSize": 14, "fontFamily": "Arial, sans-serif", "fontWeight": "bold", "color": "#2c3e50", "borderBottom": "2px solid #3498db" },
+        { "id": "education", "type": "text", "content": "Bachelor of Science in Computer Science | University of Technology | 2018", "left": 50, "top": 545, "width": 500, "fontSize": 14, "fontFamily": "Arial, sans-serif", "color": "#34495e" }
+      ]
+    },
+    {
+      "id": "modern",
+      "name": "Modern",
+      "preview": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "elements": [
+        { "id": "sidebar", "type": "rect", "content": "", "left": 0, "top": 0, "width": 280, "height": 600, "backgroundColor": "#667eea", "borderRadius": "16px 0 0 16px" },
+        { "id": "profile", "type": "text", "content": "👤", "left": 90, "top": 40, "width": 100, "height": 100, "fontSize": 60, "textAlign": "center", "backgroundColor": "rgba(255,255,255,0.2)", "borderRadius": "50%" },
+        { "id": "name", "type": "text", "content": "JANE SMITH", "left": 30, "top": 170, "width": 220, "fontSize": 24, "fontFamily": "Poppins, sans-serif", "fontWeight": "bold", "color": "#ffffff", "textAlign": "center" },
+        { "id": "title", "type": "text", "content": "UX Designer", "left": 30, "top": 205, "width": 220, "fontSize": 14, "fontFamily": "Poppins, sans-serif", "color": "rgba(255,255,255,0.8)", "textAlign": "center" },
+        { "id": "contact-title", "type": "text", "content": "CONTACT", "left": 30, "top": 260, "width": 220, "fontSize": 12, "fontFamily": "Poppins, sans-serif", "fontWeight": "bold", "color": "rgba(255,255,255,0.6)", "textTransform": "uppercase" },
+        { "id": "contact", "type": "text", "content": "jane@email.com\n(555) 987-6543\nNew York, USA", "left": 30, "top": 285, "width": 220, "fontSize": 13, "fontFamily": "Poppins, sans-serif", "color": "#ffffff", "lineHeight": "1.8" },
+        { "id": "skills-title", "type": "text", "content": "SKILLS", "left": 30, "top": 380, "width": 220, "fontSize": 12, "fontFamily": "Poppins, sans-serif", "fontWeight": "bold", "color": "rgba(255,255,255,0.6)", "textTransform": "uppercase" },
+        { "id": "skills", "type": "text", "content": "UI/UX Design\nFigma\nAdobe XD\nPrototyping\nUser Research", "left": 30, "top": 405, "width": 220, "fontSize": 13, "fontFamily": "Poppins, sans-serif", "color": "#ffffff", "lineHeight": "2" },
+        { "id": "about-title", "type": "text", "content": "ABOUT ME", "left": 310, "top": 40, "width": 300, "fontSize": 14, "fontFamily": "Poppins, sans-serif", "fontWeight": "bold", "color": "#667eea", "textTransform": "uppercase" },
+        { "id": "about", "type": "text", "content": "Creative UX designer with a passion for creating intuitive and beautiful user experiences.", "left": 310, "top": 65, "width": 500, "fontSize": 14, "fontFamily": "Poppins, sans-serif", "color": "#333", "lineHeight": "1.6" },
+        { "id": "exp-title", "type": "text", "content": "EXPERIENCE", "left": 310, "top": 150, "width": 300, "fontSize": 14, "fontFamily": "Poppins, sans-serif", "fontWeight": "bold", "color": "#667eea", "textTransform": "uppercase" },
+        { "id": "exp1", "type": "text", "content": "Senior UX Designer | Design Studio\n2021 - Present", "left": 310, "top": 180, "width": 500, "fontSize": 14, "fontFamily": "Poppins, sans-serif", "fontWeight": "bold", "color": "#333" },
+        { "id": "exp1-desc", "type": "text", "content": "Led design for mobile and web applications. Conducted user research and created wireframes.", "left": 310, "top": 220, "width": 500, "fontSize": 13, "fontFamily": "Poppins, sans-serif", "color": "#666", "lineHeight": "1.6" },
+        { "id": "edu-title", "type": "text", "content": "EDUCATION", "left": 310, "top": 320, "width": 300, "fontSize": 14, "fontFamily": "Poppins, sans-serif", "fontWeight": "bold", "color": "#667eea", "textTransform": "uppercase" },
+        { "id": "edu", "type": "text", "content": "BFA in Interaction Design | Art Institute | 2019", "left": 310, "top": 345, "width": 500, "fontSize": 14, "fontFamily": "Poppins, sans-serif", "color": "#333" }
+      ]
+    },
+    {
+      "id": "creative",
+      "name": "Creative",
+      "preview": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      "elements": [
+        { "id": "header", "type": "rect", "content": "", "left": 0, "top": 0, "width": 850, "height": 180, "background": "linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #ffecd2 100%)" },
+        { "id": "name", "type": "text", "content": "ALEX CREATIVE", "left": 50, "top": 50, "width": 400, "fontSize": 42, "fontFamily": "Comic Sans MS, cursive", "fontWeight": "bold", "color": "#ffffff", "textShadow": "2px 2px 4px rgba(0,0,0,0.2)" },
+        { "id": "tagline", "type": "text", "content": "Digital Artist & Brand Designer", "left": 50, "top": 105, "width": 400, "fontSize": 18, "fontFamily": "Poppins, sans-serif", "color": "#ffffff", "fontStyle": "italic" },
+        { "id": "decor", "type": "text", "content": "★", "left": 700, "top": 30, "width": 80, "height": 80, "fontSize": 60, "color": "#ffffff", "textAlign": "center" },
+        { "id": "contact", "type": "text", "content": "📧 alex@creative.com | 📱 (555) 111-2222", "left": 50, "top": 200, "width": 400, "fontSize": 12, "fontFamily": "Verdana, sans-serif", "color": "#f5576c" },
+        { "id": "services-title", "type": "text", "content": "WHAT I DO", "left": 50, "top": 250, "width": 200, "fontSize": 20, "fontFamily": "Comic Sans MS, cursive", "fontWeight": "bold", "color": "#f5576c" },
+        { "id": "services", "type": "text", "content": "🎨 Brand Identity Design\n💻 Web Design & Development\n📱 App UI/UX Design\n✏️ Illustration & Artwork", "left": 50, "top": 290, "width": 400, "fontSize": 16, "fontFamily": "Verdana, sans-serif", "color": "#333", "lineHeight": "2.2" },
+        { "id": "portfolio-title", "type": "text", "content": "MY WORK", "left": 500, "top": 250, "width": 200, "fontSize": 20, "fontFamily": "Comic Sans MS, cursive", "fontWeight": "bold", "color": "#f5576c" },
+        { "id": "project1", "type": "rect", "content": "Project 1", "left": 500, "top": 290, "width": 140, "height": 80, "backgroundColor": "#667eea", "fontSize": 14, "fontFamily": "Poppins, sans-serif", "color": "#ffffff", "textAlign": "center", "borderRadius": "10px", "display": "flex", "alignItems": "center", "justifyContent": "center" },
+        { "id": "project2", "type": "rect", "content": "Project 2", "left": 660, "top": 290, "width": 140, "height": 80, "backgroundColor": "#f093fb", "fontSize": 14, "fontFamily": "Poppins, sans-serif", "color": "#ffffff", "textAlign": "center", "borderRadius": "10px", "display": "flex", "alignItems": "center", "justifyContent": "center" },
+        { "id": "project3", "type": "rect", "content": "Project 3", "left": 500, "top": 390, "width": 140, "height": 80, "backgroundColor": "#11998e", "fontSize": 14, "fontFamily": "Poppins, sans-serif", "color": "#ffffff", "textAlign": "center", "borderRadius": "10px", "display": "flex", "alignItems": "center", "justifyContent": "center" },
+        { "id": "project4", "type": "rect", "content": "Project 4", "left": 660, "top": 390, "width": 140, "height": 80, "backgroundColor": "#f2c94c", "fontSize": 14, "fontFamily": "Poppins, sans-serif", "color": "#ffffff", "textAlign": "center", "borderRadius": "10px", "display": "flex", "alignItems": "center", "justifyContent": "center" },
+        { "id": "quote", "type": "text", "content": "\"Design is not just what it looks like. Design is how it works.\" - Steve Jobs", "left": 50, "top": 480, "width": 750, "fontSize": 16, "fontFamily": "Georgia, serif", "fontStyle": "italic", "color": "#666", "textAlign": "center" },
+        { "id": "social", "type": "text", "content": "🌐 Portfolio: alexcreative.design | 💼 LinkedIn | 📸 Instagram", "left": 50, "top": 540, "width": 750, "fontSize": 12, "fontFamily": "Verdana, sans-serif", "color": "#999", "textAlign": "center" }
+      ]
+    },
+    {
+      "id": "simple",
+      "name": "Simple",
+      "preview": "linear-gradient(135deg, #e0e0e0 0%, #ffffff 100%)",
+      "elements": [
+        { "id": "bg", "type": "rect", "content": "", "left": 0, "top": 0, "width": 850, "height": 600, "backgroundColor": "#ffffff" },
+        { "id": "name", "type": "text", "content": "MICHAEL BROWN", "left": 50, "top": 40, "width": 300, "fontSize": 28, "fontFamily": "Times New Roman, serif", "fontWeight": "bold", "color": "#000000" },
+        { "id": "title", "type": "text", "content": "Marketing Manager", "left": 50, "top": 80, "width": 300, "fontSize": 16, "fontFamily": "Times New Roman, serif", "color": "#444444" },
+        { "id": "divider", "type": "rect", "content": "", "left": 50, "top": 120, "width": 750, "height": 2, "backgroundColor": "#000000" },
+        { "id": "contact", "type": "text", "content": "michael.brown@email.com | (555) 333-4444 | Chicago, IL", "left": 50, "top": 140, "width": 500, "fontSize": 12, "fontFamily": "Arial, sans-serif", "color": "#666666" },
+        { "id": "obj-title", "type": "text", "content": "OBJECTIVE", "left": 50, "top": 180, "width": 150, "fontSize": 14, "fontFamily": "Times New Roman, serif", "fontWeight": "bold", "color": "#000000" },
+        { "id": "objective", "type": "text", "content": "Results-driven marketing professional seeking to leverage expertise in digital marketing and brand management.", "left": 50, "top": 205, "width": 750, "fontSize": 13, "fontFamily": "Arial, sans-serif", "color": "#333333", "lineHeight": "1.6" },
+        { "id": "exp-title", "type": "text", "content": "EXPERIENCE", "left": 50, "top": 270, "width": 150, "fontSize": 14, "fontFamily": "Times New Roman, serif", "fontWeight": "bold", "color": "#000000" },
+        { "id": "exp1", "type": "text", "content": "Marketing Manager | ABC Corp | 2019 - Present", "left": 50, "top": 295, "width": 400, "fontSize": 13, "fontFamily": "Arial, sans-serif", "fontWeight": "bold", "color": "#000000" },
+        { "id": "exp1-desc", "type": "text", "content": "Developed marketing strategies that increased sales by 35%. Managed a team of 5 marketing specialists.", "left": 50, "top": 320, "width": 750, "fontSize": 13, "fontFamily": "Arial, sans-serif", "color": "#333333", "lineHeight": "1.6" },
+        { "id": "edu-title", "type": "text", "content": "EDUCATION", "left": 50, "top": 390, "width": 150, "fontSize": 14, "fontFamily": "Times New Roman, serif", "fontWeight": "bold", "color": "#000000" },
+        { "id": "edu", "type": "text", "content": "MBA in Marketing | University of Chicago | 2018", "left": 50, "top": 415, "width": 400, "fontSize": 13, "fontFamily": "Arial, sans-serif", "color": "#333333" },
+        { "id": "skills-title", "type": "text", "content": "SKILLS", "left": 50, "top": 470, "width": 150, "fontSize": 14, "fontFamily": "Times New Roman, serif", "fontWeight": "bold", "color": "#000000" },
+        { "id": "skills", "type": "text", "content": "Digital Marketing, Social Media Management, SEO, Google Analytics, Project Management", "left": 50, "top": 495, "width": 750, "fontSize": 13, "fontFamily": "Arial, sans-serif", "color": "#333333" }
+      ]
+    },
+    {
+      "id": "executive",
+      "name": "Executive",
+      "preview": "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
+      "elements": [
+        { "id": "header", "type": "rect", "content": "", "left": 0, "top": 0, "width": 850, "height": 150, "background": "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)" },
+        { "id": "name", "type": "text", "content": "ROBERT CHEN", "left": 50, "top": 40, "width": 400, "fontSize": 36, "fontFamily": "Georgia, serif", "fontWeight": "bold", "color": "#ffffff" },
+        { "id": "title", "type": "text", "content": "Chief Executive Officer", "left": 50, "top": 85, "width": 400, "fontSize": 18, "fontFamily": "Arial, sans-serif", "color": "rgba(255,255,255,0.9)" },
+        { "id": "summary-box", "type": "rect", "content": "", "left": 50, "top": 170, "width": 750, "height": 100, "backgroundColor": "#f0f9f8", "borderLeft": "4px solid #11998e", "borderRadius": "4px" },
+        { "id": "summary-title", "type": "text", "content": "EXECUTIVE SUMMARY", "left": 70, "top": 185, "width": 200, "fontSize": 12, "fontFamily": "Arial, sans-serif", "fontWeight": "bold", "color": "#11998e", "textTransform": "uppercase", "letterSpacing": "1px" },
+        { "id": "summary", "type": "text", "content": "Visionary executive with 20+ years of experience leading Fortune 500 companies. Proven track record in strategic planning, business development, and team leadership.", "left": 70, "top": 210, "width": 700, "fontSize": 14, "fontFamily": "Arial, sans-serif", "color": "#333333", "lineHeight": "1.6" },
+        { "id": "ach-title", "type": "text", "content": "KEY ACHIEVEMENTS", "left": 50, "top": 295, "width": 200, "fontSize": 16, "fontFamily": "Georgia, serif", "fontWeight": "bold", "color": "#11998e" },
+        { "id": "achievements", "type": "text", "content": "✓ Increased company revenue by 250% over 5 years\n✓ Led successful merger resulting in $500M acquisition\n✓ Built and managed high-performance executive team of 50+ leaders\n✓ Expanded global operations to 15 countries", "left": 50, "top": 330, "width": 750, "fontSize": 14, "fontFamily": "Arial, sans-serif", "color": "#333333", "lineHeight": "2" },
+        { "id": "comp-title", "type": "text", "content": "CORE COMPETENCIES", "left": 50, "top": 450, "width": 200, "fontSize": 16, "fontFamily": "Georgia, serif", "fontWeight": "bold", "color": "#11998e" },
+        { "id": "competencies", "type": "text", "content": "Strategic Planning | M&A | P&L Management | Board Relations | Investor Relations | Business Transformation", "left": 50, "top": 485, "width": 750, "fontSize": 14, "fontFamily": "Arial, sans-serif", "color": "#333333" },
+        { "id": "contact", "type": "text", "content": "📧 robert.chen@executive.com | 📞 (555) 999-8888 | 🔗 linkedin.com/in/robertchen", "left": 50, "top": 550, "width": 750, "fontSize": 12, "fontFamily": "Arial, sans-serif", "color": "#666666", "textAlign": "center" }
+      ]
+    }
+  ]
+}
+
